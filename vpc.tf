@@ -16,7 +16,7 @@ module "myapp-vpc" {
   name = "myapp-vpc"
   cidr = var.vpc_cidr_block
 
-  azs = data.aws_availability_zone.azs.names
+  azs = data.aws_availability_zone.azs.name
   private_subnets = var.private_subnet_cidr_block
   public_subnets = var.public_subnet_cidr_block
 
