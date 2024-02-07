@@ -7,7 +7,6 @@ variable vpc_cidr_block {}
 variable private_subnet_cidr_block {}
 variable public_subnet_cidr_block {}
 
-data "aws_availability_zone" "azs" {}
 
 module "myapp-vpc" {
   source  = "terraform-aws-modules/vpc/aws"
@@ -16,7 +15,7 @@ module "myapp-vpc" {
   name = "myapp-vpc"
   cidr = var.vpc_cidr_block
 
-  azs = data.aws_availability_zone.azs.name
+  azs = ["eu-west-3a", "eu-west-3b", "eu-west-3c"]
   private_subnets = var.private_subnet_cidr_block
   public_subnets = var.public_subnet_cidr_block
 
